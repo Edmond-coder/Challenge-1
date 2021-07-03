@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
    const getUserPosts = (id) =>{
     const ul = newTag('ul')
-    const closeBtn = newTag('button')
-    closeBtn.innerText = 'X'
-    closeBtn.addEventListener('click',()=>document.querySelector('ul').style.display='none')
-   ul.appendChild(closeBtn)
+    const button = newTag('button')
+    button.innerText = 'Get Back'
+    button.addEventListener('click',()=>document.querySelector('ul').style.display='none')
+   ul.appendChild(button)
    
     fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`).
     then(posts => posts.json()).
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let userPostBtn = newTag('button')
         userPostBtn.innerHTML = 'Get User’s Posts'   
         userPostBtn.addEventListener('click', function(e) {
-            const list = document.querySelector('ul')
-            if(list){
-                list.parentNode.removeChild(list)
+            const post = document.querySelector('p')
+            if(post){
+                post.parentNode.removeChild(post)
             }
             getUserPosts(id)
         })
